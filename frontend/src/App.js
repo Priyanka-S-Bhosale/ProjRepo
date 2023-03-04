@@ -7,12 +7,13 @@ function App() {
   return (
       <div className="App">
         <header className="App-header">
+          <h1>EMPLOYEES</h1>
           <form>
-          <input type="number" placeholder="id" id = "id"></input>
+          <input type="number" placeholder="id" id = "id"></input><br></br>
           <input type="text" placeholder="name" id="name"></input>
           
           </form>
-          <button onClick={callApi}>Call API1</button>
+          <button onClick={callApi}>Update</button>
           <table id = "data" border="1">
             <tr>
               <th>ID</th>
