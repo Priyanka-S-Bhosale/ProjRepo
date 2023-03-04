@@ -4,7 +4,7 @@ const cors = require('cors');
 const mongoose = require("mongoose");
 const userModel = require("./models");
 const User = require('./models');
-
+//const Logger = require("./Logger")
 
 const app = express();
 const port = 3001;
@@ -76,5 +76,13 @@ userInsert.save();
 app.listen(port, () => console.log(`Hello world app listening on port ${port}!`))
 
 
+module.exports = async function find(){
+ // const logger = Logger.getLogger()
+  //logger.warn(`Attempted to find an id `)
+  const doc = await userModel.findOne({id: 234}); 
+  //console.log("Found the user")
+  await doc.save()
+//  logger.info(`Found user with id 234 `)
 
+}
 
