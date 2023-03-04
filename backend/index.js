@@ -42,13 +42,32 @@ await userModel.deleteOne({ name: "Aishu"});
 // Mongoose sends an `updateOne({ _id: doc._id }, { $set: { name: 'foo' } })`
 // to MongoDB.
 });
-const userInsert = new userModel({
-    id: 234,
-    name: 'Aishu'
+// const userInsert = new userModel({
+//     id: 234,
+//     name: 'Aishu'
+//   });
+  
+  // Insert the article in our MongoDB database
+// userInsert.save();
+
+app.post('/insert', (req, res) => {
+    const user_id = req.body.id;
+  const name = req.body.name;
+  const userInsert = new userModel({
+    id: user_id,
+    name: name
   });
   
   // Insert the article in our MongoDB database
 userInsert.save();
+    res.send('Got a POST request')
+  })
+
+  app.delete('/remove/:id', async (req, res) => {
+      console.log(req.params.id);
+    await userModel.deleteOne({ id: parseInt(req.params.id)});
+    res.send("DELETE Request Called")
+  })
 
 // Mongoose sends an `updateOne({ _id: doc._id }, { $set: { name: 'foo' } })`
 // to MongoDB.
