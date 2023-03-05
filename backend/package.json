@@ -5,20 +5,28 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage --verbose --silent  --no-cache --watchAll",
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "build": "ENVIRONMENT='production' webpack",
+    "prod-build": "ENVIRONMENT='production' gulp"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/credential-providers": "^3.282.0",
+    "aws4": "^1.12.0",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "kerberos": "^2.0.1",
     "logger": "^0.0.1",
     "mongodb": "^5.1.0",
-    "mongoose": "^7.0.0"
+    "mongodb-client-encryption": "^2.6.0",
+    "mongoose": "^7.0.0",
+    "webpack": "^5.75.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.21"
+    "nodemon": "^2.0.21",
+    "webpack-cli": "^5.0.1"
   }
 }

@@ -8,12 +8,12 @@ function App() {
       <div className="App">
         <header className="App-header">
           <h1>EMPLOYEES</h1>
-          <form>
+          <form id ="myForm">
           <input type="number" placeholder="id" id = "id"></input><br></br>
           <input type="text" placeholder="name" id="name"></input>
           
           </form>
-          <button onClick={callApi}>Update</button>
+          <button onClick={callApi}>Refresh</button>
           <table id = "data" border="1">
             <tr>
               <th>ID</th>
@@ -70,9 +70,10 @@ function callApi() {
               console.log("oal");
               fetch('http://localhost:3001/remove/'+json[i].id, { method: 'DELETE'})
     .then(() => function(){})
+    document.getElementById("data").deleteRow(-1);
 
             });
-            delbut.onclick = deleteAPI(id);
+           // delbut.onclick = deleteAPI(id);
             row.id = json[i].id;
             idcol.innerHTML = json[i].id;
             nmcol.innerHTML = json[i].name;
@@ -82,17 +83,37 @@ function callApi() {
             tab.appendChild(row);
           }
         }())
+        document.getElementById("myForm").reset()
 }
 
-function deleteAPI(id){
-  return function(){
-  fetch('http://localhost:3001/remove', { method: 'DELETE' ,  body: JSON.stringify({
-    id: id,
-}),
-       headers: {
-    "Content-type": "application/json; charset=UTF-8"
-}})
-    .then(() => function(){});}
-}
+// function deleteAPI(id){
+//   return function(){
+//   fetch('http://localhost:3001/remove', { method: 'DELETE' ,  body: JSON.stringify({
+//     id: id,
+// }),
+//        headers: {
+//     "Content-type": "application/json; charset=UTF-8"
+// }})
+//     .then(() => function(){
+//       document.getElementById("data").deleteRow(0);
+//     });}
+    
+// }
 
 export default App;
+
+//http://projerepo.s3-website.us-east-2.amazonaws.com
+
+
+// {
+//   "Version": "2012-10-17",
+//   "Statement": [{
+//     "Sid": "AllowPublicReadAccess",
+//     "Effect": "Allow",
+//     "Principal":"*",
+//     "Action": [
+//         "s3:GetObject"
+//         ],
+//     "Resource": ["arn:aws:s3:::projerepo/*"]
+//   }]
+//   }

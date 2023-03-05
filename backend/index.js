@@ -4,13 +4,14 @@ const cors = require('cors');
 const mongoose = require("mongoose");
 const userModel = require("./models");
 const User = require('./models');
+const path = require('path')
 //const Logger = require("./Logger")
 
 const app = express();
 const port = 3001;
 
 app.use(cors());
-
+app.use(express.static(path.join(__dirname, "./frontend/build")));
 mongoose.connect('mongodb+srv://mongouser:mongouser@atlascluster.4tk2ajz.mongodb.net/myfirstdatabase?retryWrites=true&w=majority',
     {
         useNewUrlParser: true,
@@ -75,6 +76,10 @@ userInsert.save();
 
 app.listen(port, () => console.log(`Hello world app listening on port ${port}!`))
 
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, "./frontend/build/index.html"));
+});
 
 module.exports = async function find(){
  // const logger = Logger.getLogger()
