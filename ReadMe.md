@@ -1,7 +1,7 @@
 Created a simple MERN full stack application
-This handles CRUD operations
-API calls are written in Express
-Database is MOngoDB
+This handles CRUD operations.
+API calls are written in Express.
+Database used is MongoDB.
 Used mongodb Atlas string connection, replace with your connection string username and password
 Refer: https://www.mongodb.com/docs/atlas/getting-started/
 
