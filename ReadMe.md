@@ -6,8 +6,7 @@ Used mongodb Atlas string connection, replace with your connection string userna
 Refer: https://www.mongodb.com/docs/atlas/getting-started/
 
 
-Execute on frontend : npm start 
-Execute on backend : npm start 
+Execute on frontend and backend folders : npm start 
 ![Getting Started](1.png)
 
 Database Snapshot:
