@@ -19,7 +19,7 @@ press q for logging out
 ![Getting Started](3.png)
 
 
-Production Build is deployed in Docker.
+Dockerized the MERN application's production build.
 ![Getting Started](4.png)
 ![Getting Started](5.png)
 
